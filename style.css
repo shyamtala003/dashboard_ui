@@ -341,6 +341,14 @@ a.profile img {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 0px;
+    gap: 10px;
+  }
+
+  .searchbar {
+    padding: 5px;
+  }
+
+  a.profile img {
+    border-radius: 50%;
   }
 }
