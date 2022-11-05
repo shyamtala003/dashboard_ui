@@ -340,12 +340,25 @@ a.profile img {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     gap: 10px;
   }
 
   .searchbar {
     padding: 5px;
+  }
+  .searchbar .tune_icon {
+    display: none;
+  }
+
+  .button_set {
+    display: flex;
+    align-items: center;
+  }
+
+  a.profile {
+    width: 30px;
+    height: 30px;
   }
 
   a.profile img {
