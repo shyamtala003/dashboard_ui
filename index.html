@@ -19,7 +19,11 @@
   <body>
     <section class="main_section">
       <!-- sidebar section -->
-      <div class="sidebar">
+      <div class="sidebar" id="sidebar">
+        <button class="close_navbar_btn" id="close_navbar_btn">
+          <span class="material-symbols-rounded"> close </span>
+        </button>
+
         <a href="#" class="logo">
           <span class="icon material-symbols-rounded"> grass </span>
           <span class="link_text">Planti.</span>
@@ -38,7 +42,51 @@
       </div>
 
       <!-- content section -->
-      <main class="content"></main>
+      <main class="content">
+        <div class="topbar">
+          <button class="menu_btn">
+            <span class="material-symbols-rounded"> menu </span>
+          </button>
+          <div class="leftside_titles">
+            <h2 class="heading_1">Welcome to Planti.</h2>
+            <h5 class="heading_2">Hello Shyam, welcome back!</h5>
+          </div>
+
+          <div class="rightside_content">
+            <div class="searchbar">
+              <span class="material-symbols-rounded"> search </span>
+
+              <input
+                type="search"
+                name="search"
+                id=""
+                placeholder="Search Listed Items"
+              />
+
+              <span class="material-symbols-rounded"> tune </span>
+            </div>
+
+            <div class="button_set">
+              <a href="#" class="button">
+                <span class="material-symbols-rounded"> chat </span>
+              </a>
+
+              <a href="#" class="button notification">
+                <span class="material-symbols-rounded">
+                  notifications_active
+                </span>
+              </a>
+
+              <a href="#" class="profile">
+                <img src="./images/profile_pics/profile1.webp" width="16" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </main>
     </section>
+
+    <!-- general script -->
+    <script src="./main.js"></script>
   </body>
 </html>

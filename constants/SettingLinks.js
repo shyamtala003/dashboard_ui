@@ -20,29 +20,14 @@ const Settinglinks = [{
     },
     {
         link: "#",
-        linkText: "Bbilling",
+        linkText: "Billing",
         linkLogo: "payments"
     },
     {
         link: "#",
         linkText: "user settings",
         linkLogo: "manage_accounts"
-    },
-    {
-        link: "#",
-        linkText: "user settings",
-        linkLogo: "manage_accounts"
-    },
-    {
-        link: "#",
-        linkText: "user settings",
-        linkLogo: "manage_accounts"
-    },
-    {
-        link: "#",
-        linkText: "user settings",
-        linkLogo: "manage_accounts"
-    },
+    }
 ];
 
 const sidebarLinkContainerSecond = document.querySelectorAll('.sidebar_links');
