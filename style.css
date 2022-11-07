@@ -47,12 +47,55 @@ body {
   border-right: 1.5px solid #dedede;
 }
 
+.sidebar::after {
+  content: "";
+  position: absolute;
+  top: 0%;
+  left: 10%;
+  width: 220px;
+  height: 120px;
+  border-radius: 50%;
+  background: #b3ff99;
+  background-image: radial-gradient(
+      at 100% 0%,
+      hsla(162, 100%, 80%, 1) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 9% 89%, hsla(219, 100%, 82%, 1) 0px, transparent 50%),
+    radial-gradient(at 99% 98%, hsla(201, 100%, 90%, 1) 0px, transparent 50%),
+    radial-gradient(at 0% 0%, hsla(254, 91%, 86%, 1) 0px, transparent 50%);
+  z-index: -1;
+  filter: blur(80px);
+}
+
+.sidebar::before {
+  content: "";
+  position: fixed;
+  top: 70%;
+  left: 10%;
+  width: 220px;
+  height: 120px;
+  border-radius: 50%;
+  background: #b3ff99;
+  background-image: radial-gradient(
+      at 0% 0%,
+      hsla(294, 100%, 86%, 1) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 100% 0%, hsla(189, 100%, 79%, 1) 0px, transparent 50%),
+    radial-gradient(at 9% 89%, hsla(4, 100%, 80%, 1) 0px, transparent 50%),
+    radial-gradient(at 99% 98%, hsla(261, 100%, 80%, 1) 0px, transparent 50%);
+  z-index: -1;
+  filter: blur(80px);
+}
+
 .sidebar::-webkit-scrollbar {
   display: none;
 }
 
 .content {
   grid-area: "content";
+  background: #f9fbfc;
   max-height: 100vh;
   overflow-x: hidden;
   overflow-y: scroll;
@@ -135,6 +178,7 @@ body {
   align-items: center;
   color: var(--font-grey);
   font-size: 0.9rem;
+  font-weight: 500;
   text-transform: capitalize;
 }
 
@@ -246,7 +290,9 @@ body {
 .content {
   width: 100%;
   padding: 1rem 3%;
-  background: #f9fbfc;
+  background: url("./images/side_bg.jpg") no-repeat;
+  background-size: 200%;
+  background-position: center;
 }
 
 .topbar {
@@ -277,9 +323,11 @@ body {
 .rightside_content .searchbar {
   display: flex;
   gap: 10px;
-  background: #ffffff;
+  background: #ffffff36;
   padding: 10px;
   color: var(--font-grey);
+  box-shadow: 0px 0px 10px 0px #70707085;
+  backdrop-filter: blur(20px);
 }
 
 .searchbar input {
@@ -287,6 +335,7 @@ body {
   outline: none;
   caret-color: var(--font-green);
   color: var(--font-dark-green);
+  background: #ffffff36;
 }
 
 .searchbar input::placeholder {
@@ -375,10 +424,19 @@ a.profile img {
   grid-column: 1/8;
 }
 
+.main_layout main::-webkit-scrollbar {
+  display: none;
+}
+
 .main_layout aside {
   grid-column: 8/13;
-  height: 100px;
-  background: red;
+  max-height: 104vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.main_layout aside::-webkit-scrollbar {
+  display: none;
 }
 
 .poster {
@@ -423,6 +481,7 @@ a.profile img {
   text-transform: capitalize;
   border: 1px solid #fff;
   border-radius: 8px;
+  cursor: pointer;
 }
 
 .poster .button_set button:nth-child(1) {
@@ -460,10 +519,11 @@ a.profile img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.4rem;
-  color: var(--font-dark-grey);
-  font-family: var(--font-poppins);
+  gap: 0.2rem;
   font-size: 0.8rem;
+  color: var(--font-grey);
+  font-weight: 600;
+  font-family: var(--font-poppins);
 }
 
 .items {
@@ -546,6 +606,7 @@ a.profile img {
   align-items: center;
   justify-content: space-around;
   gap: 0.7rem;
+  border: 2px solid #b3b3b368;
   border-radius: 5px;
   box-shadow: 0px 30px 110px 0px #70707042;
 }
@@ -567,9 +628,9 @@ a.profile img {
 }
 
 hr.middle_line {
-  width: 4px;
+  width: 2px;
   height: 40px;
-  background: var(--font-dark-green);
+  background: #94c7b5;
   border-radius: 10px;
   border: none;
 }
@@ -598,8 +659,158 @@ hr.middle_line {
   font-size: 0.7rem;
 }
 
+/* -----------------😇aside section styling--------------- */
+aside .states_info_card {
+  position: relative;
+  width: 100%;
+  display: flex;
+  background: var(--primary);
+  font-family: var(--font-poppins);
+  border-radius: 7px;
+}
+
+.card_info {
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3.3rem;
+  z-index: 5;
+}
+
+.card_info .states {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.card_info .states h1.info_title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--font-dark-grey);
+}
+
+.card_info .states .states_info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.6rem;
+  z-index: 2;
+}
+
+.card_info .states .states_info .orders p {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--font-dark-grey);
+}
+
+.card_info .states .states_info .orders h3 {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.card_info a.goto_orders {
+  color: var(--font-dark-grey);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.card_info a.goto_orders span {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.states_info_card img.card_img {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  max-width: 200px;
+  z-index: 1;
+}
+
+.recent_acivity_bar {
+  margin-top: 2.5rem;
+}
+
+.recent_acivity_bar .top {
+  width: 100%;
+  padding: 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-poppins);
+}
+
+.recent_acivity_bar .top .heading {
+  font-size: 1.3rem;
+}
+
+.activity_list {
+  margin-top: 1rem;
+}
+
+.activity_list .record {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.2rem;
+  padding: 1rem 0.6rem;
+  background: rgba(255, 255, 255, 0.829);
+  backdrop-filter: blur(10px);
+  border-radius: 5px;
+  border: 2px solid #e0e0e070;
+}
+
+.record .record_info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.record .record_info .person_image {
+  width: 40px;
+  border-radius: 50%;
+}
+
+.person_data {
+  font-family: var(--font-poppins);
+}
+
+.person_data .person_name {
+  color: var(--font-dark-grey);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.record_arrival_time {
+  font-family: var(--font-poppins);
+  color: var(--font-grey);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.person_data .person_record_title {
+  font-size: 0.8rem;
+  color: var(--font-grey);
+  font-weight: 500;
+  line-height: 0.9rem;
+}
+
 /*code for  💻tablet responsive design */
 @media screen and (max-width: 1080px) and (min-width: 768px) {
+  .content {
+    grid-area: "content";
+    background: url("./images/side_bg.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+    max-height: auto;
+    overflow-x: hidden;
+  }
+
   .logo .link_text {
     display: none;
   }
@@ -645,6 +856,25 @@ hr.middle_line {
     grid-template-columns: repeat(1, 1fr);
     gap: 0.8rem;
   }
+
+  .card_info {
+    width: 100%;
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    z-index: 5;
+    background: rgba(255, 255, 255, 0.329);
+    backdrop-filter: blur(10px);
+  }
+
+  .states_info_card img.card_img {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    max-width: 170px;
+    z-index: 1;
+  }
 }
 
 /* code for 📱mobile responsive design */
@@ -670,13 +900,13 @@ hr.middle_line {
   }
 
   .sidebar {
-    width: minmax(100%, 270px);
+    width: minmax(100vw, 350px);
     position: absolute;
     top: 0%;
     left: -140%;
     transition: all 1s ease;
     background: #ffffff;
-    z-index: 5;
+    z-index: 6;
   }
 
   .open_sidebar {
@@ -698,6 +928,7 @@ hr.middle_line {
 
   .searchbar {
     padding: 5px;
+    z-index: 5;
   }
 
   .searchbar .tune_icon {
@@ -722,22 +953,53 @@ hr.middle_line {
     grid-column: 1/13;
   }
 
+  .content {
+    background: url("./images/side_bg.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
   .main_layout aside {
     grid-column: 1/13;
-    height: 100px;
-    background: red;
+    max-height: auto;
+    overflow-x: visible;
+    overflow-y: visible;
   }
 }
 
 /* second endpoint for mobile device */
 
 @media screen and (max-width: 618px) {
+  .content {
+    background: url("./images/side_bg.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .poster .button_set {
+    flex-direction: column;
+  }
+
+  .poster .button_set button {
+    width: 100%;
+  }
+
+  .main_layout aside {
+    max-height: auto;
+    overflow-x: visible;
+    overflow-y: visible;
+  }
+
+  .rightside_content .searchbar {
+    padding: 5px;
+  }
+
   .items {
     margin-top: 1rem;
     display: grid;
     grid-template-columns: minmax(180px, 370px);
     justify-content: center;
-    gap: 1rem;
+    gap: 2rem;
   }
 
   .seller_info {
@@ -745,6 +1007,25 @@ hr.middle_line {
     font-family: var(--font-poppins);
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    gap: 0.8rem;
+    gap: 1.6rem;
+  }
+
+  .card_info {
+    width: 100%;
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    z-index: 5;
+    background: rgba(255, 255, 255, 0.329);
+    backdrop-filter: blur(10px);
+  }
+
+  .states_info_card img.card_img {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    max-width: 170px;
+    z-index: 1;
   }
 }
